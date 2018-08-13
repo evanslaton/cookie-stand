@@ -58,25 +58,43 @@ function randomNum(min, max) {
 }
 
 // Calculates customers per hour
-pike.calcCustomersPerHour = function() {
+var calcCustomersPerHour = function(customersPerHour, minCustomers, maxCustomers) {
   for (var i = 0; i < hoursOfOp.length; i++) {
-    this.customersPerHour.push(Math.round(randomNum(this.minCustomers, this.maxCustomers)));
+    customersPerHour.push(Math.ceil(randomNum(minCustomers, maxCustomers)));
   }
-  console.log(this.customersPerHour);
+  console.log(customersPerHour);
+  return customersPerHour;
 }
 
 // Calculates cookies per hour
-pike.calcCookiesPerHour = function() {
-  for (var i = 0; i < this.customersPerHour.length; i++) {
-    this.cookiesPerHour.push(Math.round(this.customersPerHour[i] * this.avgCookies));
+var calcCookiesPerHour = function(cookiesPerHour, customersPerHour, avgCookies) {
+  for (var i = 0; i < hoursOfOp.length; i++) {
+    cookiesPerHour.push(Math.ceil(customersPerHour[i] * avgCookies));
   }
-  console.log(this.cookiesPerHour);
+  console.log(cookiesPerHour);
+  return cookiesPerHour;
 }
 
 // Calculates daily cookie total
-pike.calcDailyTotalCookies = function() {
-  for (var i = 0; i < this.cookiesPerHour.length; i++) {
-    this.dailyCookieTotal += this.cookiesPerHour[i];
+var calcDailyTotalCookies = function(dailyCookieTotal, cookiesPerHour) {
+  for (var i = 0; i < hoursOfOp.length; i++) {
+    dailyCookieTotal += cookiesPerHour[i];
   }
-  console.log(this.dailyCookieTotal);
+  console.log(dailyCookieTotal);
+  return dailyCookieTotal;
+}
+
+// Adds content to HTML doc
+pike.render = function() {
+  this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
+  this.cookiesPerHour = calcCookiesPerHour(this.cookiesPerHour, this.customersPerHour, this.avgCookies);
+  this.dailyCookieTotal = calcDailyTotalCookies(this.dailyCookieTotal, this.cookiesPerHour);
+  var pikeUlEl = document.getElementById('pike');
+  for (var i = 0; i < hoursOfOp.length; i++) {
+    var liEl = document.createElement('li');
+    liEl.textContent = hoursOfOp[i] + ': ' + this.cookiesPerHour[i];
+    pikeUlEl.appendChild(liEl);
+  }
+  liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
+  pikeUlEl.appendChild(liEl);
 }
