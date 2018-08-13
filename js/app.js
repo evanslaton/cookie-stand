@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var hoursOfOp = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -10,7 +10,7 @@ var pike = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyCookieTotal: 0
-}
+};
 
 var seatac = {
   location: 'SeaTac Airport',
@@ -20,7 +20,7 @@ var seatac = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyCookieTotal: 0
-}
+};
 
 var seattle = {
   location: 'Seattle Center',
@@ -30,7 +30,7 @@ var seattle = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyCookieTotal: 0
-}
+};
 
 var capitol = {
   location: 'Capitol Hill',
@@ -40,7 +40,7 @@ var capitol = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyCookieTotal: 0
-}
+};
 
 var alki = {
   location: 'Alki',
@@ -50,7 +50,7 @@ var alki = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyCookieTotal: 0
-}
+};
 
 // Generates a random number
 function randomNum(min, max) {
@@ -64,7 +64,7 @@ var calcCustomersPerHour = function(customersPerHour, minCustomers, maxCustomers
   }
   console.log(customersPerHour);
   return customersPerHour;
-}
+};
 
 // Calculates cookies per hour
 var calcCookiesPerHour = function(cookiesPerHour, customersPerHour, avgCookies) {
@@ -73,7 +73,7 @@ var calcCookiesPerHour = function(cookiesPerHour, customersPerHour, avgCookies) 
   }
   console.log(cookiesPerHour);
   return cookiesPerHour;
-}
+};
 
 // Calculates daily cookie total
 var calcDailyTotalCookies = function(dailyCookieTotal, cookiesPerHour) {
@@ -82,14 +82,14 @@ var calcDailyTotalCookies = function(dailyCookieTotal, cookiesPerHour) {
   }
   console.log(dailyCookieTotal);
   return dailyCookieTotal;
-}
+};
 
 // Adds render to each object
 pike.render = function() {
   this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
   this.cookiesPerHour = calcCookiesPerHour(this.cookiesPerHour, this.customersPerHour, this.avgCookies);
   this.dailyCookieTotal = calcDailyTotalCookies(this.dailyCookieTotal, this.cookiesPerHour);
-  
+
   // Creates <li> and adds to the <ul>
   var pikeUlEl = document.getElementById('pike');
   for (var i = 0; i < hoursOfOp.length; i++) {
@@ -99,13 +99,13 @@ pike.render = function() {
   }
   liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
   pikeUlEl.appendChild(liEl);
-}
+};
 
 seatac.render = function() {
   this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
   this.cookiesPerHour = calcCookiesPerHour(this.cookiesPerHour, this.customersPerHour, this.avgCookies);
   this.dailyCookieTotal = calcDailyTotalCookies(this.dailyCookieTotal, this.cookiesPerHour);
-  
+
   // Creates <li> and adds to the <ul>
   var seatacUlEl = document.getElementById('seatac');
   for (var i = 0; i < hoursOfOp.length; i++) {
@@ -115,13 +115,13 @@ seatac.render = function() {
   }
   liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
   seatacUlEl.appendChild(liEl);
-}
+};
 
 seattle.render = function() {
   this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
   this.cookiesPerHour = calcCookiesPerHour(this.cookiesPerHour, this.customersPerHour, this.avgCookies);
   this.dailyCookieTotal = calcDailyTotalCookies(this.dailyCookieTotal, this.cookiesPerHour);
-  
+
   // Creates <li> and adds to the <ul>
   var seattleUlEl = document.getElementById('seattle');
   for (var i = 0; i < hoursOfOp.length; i++) {
@@ -131,13 +131,13 @@ seattle.render = function() {
   }
   liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
   seattleUlEl.appendChild(liEl);
-}
+};
 
 capitol.render = function() {
   this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
   this.cookiesPerHour = calcCookiesPerHour(this.cookiesPerHour, this.customersPerHour, this.avgCookies);
   this.dailyCookieTotal = calcDailyTotalCookies(this.dailyCookieTotal, this.cookiesPerHour);
-  
+
   // Creates <li> and adds to the <ul>
   var capitolUlEl = document.getElementById('capitol');
   for (var i = 0; i < hoursOfOp.length; i++) {
@@ -147,7 +147,7 @@ capitol.render = function() {
   }
   liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
   capitolUlEl.appendChild(liEl);
-}
+};
 
 alki.render = function() {
   this.customersPerHour = calcCustomersPerHour(this.customersPerHour, this.minCustomers, this.maxCustomers);
@@ -163,8 +163,7 @@ alki.render = function() {
   }
   liEl.textContent = 'Total' + ': ' + this.dailyCookieTotal;
   alkiUlEl.appendChild(liEl);
-}
-
+};
 
 // Adds content to HTML doc
 var locations = [pike, seatac, seattle, capitol, alki];
