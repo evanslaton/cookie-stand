@@ -69,6 +69,40 @@ var renderTableHeaders = function() {
   stores.appendChild(trEl);
 };
 
+// Renders table footers to the DOM
+var renderTableFooters = function() {
+
+  var hourlyCookieTotals = [];
+  var allStoreTotal = 0;
+
+  for (var i = 0; i < hoursOfOp.length; i++) {
+    hourlyCookieTotals[i] = 0;
+
+    for (var j = 0; j < allStores.length; j++) {
+      hourlyCookieTotals[i] += allStores[j].cookiesPerHour[i];
+    }
+    allStoreTotal += hourlyCookieTotals[i];
+  }
+  console.log(hourlyCookieTotals);
+  console.log(allStoreTotal);
+
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+
+  for (var k = 0; k < hoursOfOp.length; k++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = hourlyCookieTotals[k];
+    trEl.appendChild(tdEl);
+  }
+
+  tdEl = document.createElement('td');
+  tdEl.textContent = allStoreTotal;
+  trEl.appendChild(tdEl);
+  stores.appendChild(trEl);
+};
+
 // Renders to the DOM
 Store.prototype.render = function() {
   // Calls functions to calculate property values
@@ -104,3 +138,5 @@ renderTableHeaders();
 for (var i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
+
+renderTableFooters();
