@@ -3,7 +3,6 @@
 var hoursOfOp = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var allStores = [];
-var stores = document.getElementById('stores');
 
 // Store constructor function
 function Store(location, minCustomers, maxCustomers, avgCookies, customersPerHour, cookiesPerHour, dailyCookieTotal, id) {
@@ -50,23 +49,29 @@ Store.prototype.calcDailyTotalCookies = function() {
   return this.dailyCookieTotal;
 };
 
-// Renders table headers to the DOM
-var renderTableHeaders = function() {
+var createAndAppend = function(type, contentOne, contentTwo, contentThree) {
+  var stores = document.getElementById('stores');
+
   var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Store';
-  trEl.appendChild(thEl);
+  var tEl = document.createElement(type);
+  tEl.textContent = contentOne;
+  trEl.appendChild(tEl);
 
   for (var i = 0; i < hoursOfOp.length; i++) {
-    thEl = document.createElement('th');
-    thEl.textContent = hoursOfOp[i];
-    trEl.appendChild(thEl);
+    tEl = document.createElement(type);
+    tEl.textContent = contentTwo[i];
+    trEl.appendChild(tEl);
   }
 
-  thEl = document.createElement('th');
-  thEl.textContent = 'Total Cookies';
-  trEl.appendChild(thEl);
+  tEl = document.createElement(type);
+  tEl.textContent = contentThree;
+  trEl.appendChild(tEl);
   stores.appendChild(trEl);
+};
+
+// Renders table headers to the DOM
+var renderTableHeaders = function() {
+  createAndAppend('th', 'Store', hoursOfOp, 'Total Cookies');
 };
 
 // Renders table footers to the DOM
@@ -86,21 +91,7 @@ var renderTableFooters = function() {
   console.log(hourlyCookieTotals);
   console.log(allStoreTotal);
 
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Totals';
-  trEl.appendChild(tdEl);
-
-  for (var k = 0; k < hoursOfOp.length; k++) {
-    tdEl = document.createElement('td');
-    tdEl.textContent = hourlyCookieTotals[k];
-    trEl.appendChild(tdEl);
-  }
-
-  tdEl = document.createElement('td');
-  tdEl.textContent = allStoreTotal;
-  trEl.appendChild(tdEl);
-  stores.appendChild(trEl);
+  createAndAppend('td', 'Totals', hourlyCookieTotals, allStoreTotal);
 };
 
 // Renders to the DOM
@@ -110,21 +101,7 @@ Store.prototype.render = function() {
   this.cookiesPerHour = this.calcCookiesPerHour();
   this.dailyCookieTotal = this.calcDailyTotalCookies();
 
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.location;
-  trEl.appendChild(tdEl);
-
-  for (var i = 0; i < hoursOfOp.length; i++) {
-    tdEl = document.createElement('td');
-    tdEl.textContent = this.cookiesPerHour[i];
-    trEl.appendChild(tdEl);
-  }
-
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.dailyCookieTotal;
-  trEl.appendChild(tdEl);
-  stores.appendChild(trEl);
+  createAndAppend('td', this.location, this.cookiesPerHour, this.dailyCookieTotal);
 };
 
 new Store('1st and Pike', 23, 65, 6.3, [], [], 0, 'pike');
