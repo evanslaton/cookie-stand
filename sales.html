@@ -9,6 +9,30 @@
   <body>
     <h1>Pat's Cookies</h1>
 
+    <form id="form">
+      <fieldset>
+        <legend>Input</legend>
+        
+        <label>Branch:
+          <input type="text" name="branch" />
+        </label>
+
+        <label>Min Hourly Customers
+          <input type="text" name="minimumCustomers" />
+        </label>
+
+        <label>Max Hourly Customers
+          <input type="text" name="maximumCustomers" />
+        </label>
+
+        <label>Avg Cookies Consumed
+          <input type="text" name="averageCookies"/>
+        </label>
+
+        <input type="submit" />
+      </fieldset>
+    </form>
+
     <table id="stores"></table>
 
     <script src="js/app.js"></script>
