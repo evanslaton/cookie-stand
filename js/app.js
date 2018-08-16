@@ -126,8 +126,6 @@ var addUserInputToTable = function(e) {
   var userInput = e.target;
   var branchInput = userInput.branch.value.toLowerCase();
 
-  // branchInput.split(' ');
-
   var minimumCustomersInput = parseFloat(userInput.minimumCustomers.value);
   var maximumCustomersInput = parseFloat(userInput.maximumCustomers.value);
   var averageCookiesInput = parseFloat(userInput.averageCookies.value);
