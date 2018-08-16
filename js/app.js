@@ -1,11 +1,13 @@
 'use strict';
 
+// Variable/Array declarations
 var hoursOfOp = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var allStores = [];
 var stores = document.getElementById('stores');
+var formEl = document.getElementById('form');
 
 // Store constructor function
-function Store(location, minCustomers, maxCustomers, avgCookies, dailyCookieTotal, id) {
+function Store(location, minCustomers, maxCustomers, avgCookies, id) {
   this.location = location;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
@@ -59,6 +61,7 @@ Store.prototype.render = function() {
   createAndAppend('td', this.location, this.cookiesPerHour, this.dailyCookieTotal);
 };
 
+// Creates new th/td, appends to new tr and appends to table
 var createAndAppend = function(type, contentOne, contentTwo, contentThree) {
   var trEl = document.createElement('tr');
   var tEl = document.createElement(type);
@@ -79,7 +82,7 @@ var createAndAppend = function(type, contentOne, contentTwo, contentThree) {
 
 // Renders table headers to the DOM
 var renderTableHeaders = function() {
-  createAndAppend('th', 'Store', hoursOfOp, 'Total Cookies');
+  createAndAppend('th', 'Store', hoursOfOp, 'Total');
 };
 
 // Renders table footers to the DOM
@@ -102,42 +105,48 @@ var renderTableFooters = function() {
   createAndAppend('td', 'Totals', hourlyCookieTotals, allStoreTotal);
 };
 
+// Store locations
 new Store('1st and Pike', 23, 65, 6.3, 'pike');
 new Store('SeaTac Airport', 3, 24, 1.2, 'seatac');
 new Store('Seattle Center', 11, 38, 3.7, 'seattle');
 new Store('Capitol Hill', 20, 38, 2.3, 'capitol');
 new Store('Alki', 2, 16, 4.6, 'alki');
 
+// Renders the table
 var renderAll = function() {
   renderTableHeaders();
-
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
-
   renderTableFooters();
 };
 
-renderAll();
-
-//Event listener
-var formEl = document.getElementById('form');
-
+// Captures user input and renders new Store
 var addUserInputToTable = function(e) {
   var userInput = e.target;
   var branchInput = userInput.branch.value.toLowerCase();
-  var minimumCustomersInput = parseInt(userInput.minimumCustomers.value);
-  var maximumCustomersInput = parseInt(userInput.maximumCustomers.value);
-  var averageCookiesInput = parseInt(userInput.averageCookies.value);
+
+  branchInput.split(' ');
+
+  var minimumCustomersInput = parseFloat(userInput.minimumCustomers.value);
+  var maximumCustomersInput = parseFloat(userInput.maximumCustomers.value);
+  var averageCookiesInput = parseFloat(userInput.averageCookies.value);
+
+  // Empties input fields
+  userInput.branch.value = null;
+  userInput.minimumCustomers.value = null;
+  userInput.maximumCustomers.value = null;
+  userInput.averageCookies.value = null;
 
   new Store(branchInput, minimumCustomersInput, maximumCustomersInput, averageCookiesInput, branchInput);
   console.log(allStores);
 
   stores.innerHTML = '';
-
   renderAll();
-
   e.preventDefault();
 };
 
+// Binds addUserInputToTable to formEl
 formEl.addEventListener('submit', addUserInputToTable);
+
+renderAll();
