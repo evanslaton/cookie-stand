@@ -1,9 +1,15 @@
 body {
-  background-color: rgb(245, 240, 240);
+  background-color: white;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
-header {
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+header, footer {
   background-color: #511730;
   color: white;
   padding: 15px 10px;
@@ -28,13 +34,26 @@ h2 {
   text-shadow: 1px 1px 3px black;
 }
 
+header a {
+  margin: 25px 25px 0 0;
+  float: right;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  text-decoration: none;
+}
+
+header a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 form {
   display: block;
   padding: 15px 10px 20px;
   margin: 15px auto 0;
   width: 25%;
   min-width: 250px;
-  background-color: rgb(236, 227, 227);
+  background-color: rgb(243, 236, 236);
   border-radius: 10px;
   box-shadow: 0 0 4px black;
 }
@@ -116,4 +135,99 @@ th, td {
 th {
   background-color: black;
   color: white;
+}
+
+header + section {
+  height: 426px;
+  margin: 10px auto 0;
+  background: url(../img/banner.jpeg) no-repeat top center;
+  /* padding-top: 140px; */
+}
+
+header + section > h2 {
+  width: 80%;
+  padding: 25px 0;
+  background-color: rgba(255, 255, 255, .8);
+  text-align: center;
+  color: #97506f;
+  text-shadow: 1px 1px 1px black;
+  font-family: 'Fjalla One', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 3.7em;
+  margin: 140px auto 0;
+  border-radius: 10px;
+}
+
+section {
+  max-width: 960px;
+  border: 1px solid white;
+  margin: 0 auto;
+  clear: both;
+}
+
+section > div {
+  width: 320px;
+  float: left;
+  margin-top: 25px;
+}
+
+section > div > img {
+  max-width: 250px;
+  display: block;
+  margin: 0 auto;
+  border: 1.5px solid black;
+}
+
+section > div > img + p, section:nth-child(4) img + p, section:nth-child(5) img + p, section:nth-child(6) img + p {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #97506f;
+  text-shadow: 1px 1px 1px black;
+}
+
+section > div > p {
+  max-width: 250px;
+  margin: 15px auto;
+}
+
+section:nth-child(4) {
+  margin-top: 50px;
+  overflow: auto;
+}
+
+section > img {
+  max-width: 960;
+  display: block;
+  margin: 25px auto;
+}
+
+section:nth-child(4) > img + p + p {
+  max-width: 852px;
+  margin: 15px auto;
+}
+
+section:nth-child(5), section:nth-child(6) {
+  margin: 50px auto;
+  overflow: auto;
+}
+
+section:nth-child(5) > img, section:nth-child(6) > img {
+  margin: 0 25px 0 50px;
+  float: left;
+}
+
+section:nth-child(5) > img + p + p, section:nth-child(6) > img + p + p {
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  font-size: .8em;
+  clear: left;
+  height: 50px;
+}
+
+footer p {
+  margin-bottom: 5px;
 }

@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300" rel="stylesheet">
-      <meta charset="utf-8" />
       <title></title>
       <link href="css/reset.css" type="text/css" rel="stylesheet" />
       <link href="css/style.css" type="text/css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300" rel="stylesheet">
+      <meta charset="utf-8" />
   </head>
   <body>
     <header>
+      <a href="index.html">Public Facing Page</a>
       <img src="img/cookie-logo.png" alt="Bitten cookie" />
-      <h1>Pat's Salmon Cookies</h1>
+      <h1>Pat&#39;s Salmon Cookies</h1>
       <h2>Business, Profits, Synergy</h2>
     </header>
 
-
     <form id="form">
       <fieldset>
-        <legend>New Store Info:</legend>
+        <legend>New Store Info&#58;</legend>
         
         <div>
-          <label>Location Name:
-              <input type="text" name="branch" required="required" />
+          <label>Location Name&#58;
+              <input name="branch" type="text" required="required" />
             </label>
     
-            <label>Min Hourly Customers:
-              <input type="text" name="minimumCustomers" required="required" />
+            <label>Min Hourly Customers&#58;
+              <input name="minimumCustomers" type="number" step="any" required="required" />
             </label>
         </div>
 
-        <label>Max Hourly Customers:
-          <input type="text" name="maximumCustomers" required="required" />
+        <label>Max Hourly Customers&#58;
+          <input name="maximumCustomers" type="number" step="any" required="required" />
         </label>
 
-        <label>Avg Cookies Consumed:
-          <input type="text" name="averageCookies" required="required" />
+        <label>Avg Cookies Consumed&#58;
+          <input name="averageCookies" type="number" step=".1" required="required" />
         </label>
 
         <input type="submit" value="Do Magic" />
