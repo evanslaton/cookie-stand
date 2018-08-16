@@ -1,5 +1,102 @@
+body {
+  background-color: rgb(245, 240, 240);
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #511730;
+  color: white;
+  padding: 15px 10px;
+  box-shadow: 1px 1px 3px black;
+}
+
+header > img {
+  width: 59px;
+  margin-right: 5px;
+  float: left;
+}
+
+h1 {
+  display: inline;
+  font-size: 2.6em;
+  text-shadow: 1px 1px 3px black;
+  font-family: 'Fjalla One', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  margin-left: 40px;
+  text-shadow: 1px 1px 3px black;
+}
+
+form {
+  display: block;
+  padding: 15px 10px 20px;
+  margin: 15px auto 0;
+  width: 25%;
+  min-width: 250px;
+  background-color: rgb(236, 227, 227);
+  border-radius: 10px;
+  box-shadow: 0 0 4px black;
+}
+
+legend {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px lightgrey;
+}
+
+label {
+  display: block;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+input {
+  width: 80%;
+  max-width: 200px;
+  height: 23px;
+  display: block;
+  margin: 5px auto;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: .5px solid black;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+input[type=submit] {
+  width: 80%;
+  max-width: 210px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+  background-color: #511730;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  margin-top: 15px;
+  height: 30px;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 3px grey;
+}
+
+input[type=submit]:active {
+  box-shadow: 1px 1px 3px grey;
+}
+
 table {
   border-collapse: collapse;
+  background-color: white;
+  margin: 20px auto;
+  width: 95%;
+  box-shadow: 0 0 1px black;
 }
 
 table, th, td {
@@ -7,6 +104,16 @@ table, th, td {
   text-align: center;
 }
 
+tr:nth-child(odd) {
+  background-color: rgb(253, 203, 203);
+}
+
 th, td {
-  width: 5%;
+  padding: 3px;
+  font-weight: bold;
+}
+
+th {
+  background-color: black;
+  color: white;
 }
