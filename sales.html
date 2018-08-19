@@ -16,31 +16,40 @@
     </header>
 
     <main>
-      <form id="form">
-        <fieldset>
-          <legend>New Store Info&#58;</legend>
-          
-          <div>
+      <div class="form-div">
+        <form id="form">
+          <fieldset>
+            <legend>New Store Info&#58;</legend>
             <label>Location Name&#58;
-                <input name="branch" type="text" required="required" />
-              </label>
-      
-              <label>Min Hourly Customers&#58;
-                <input name="minimumCustomers" type="number" step="any" required="required" />
-              </label>
-          </div>
+              <input name="branch" type="text" required="required" />
+            </label>
+    
+            <label>Min Hourly Customers&#58;
+              <input name="minimumCustomers" type="number" step="any" required="required" />
+            </label>
 
-          <label>Max Hourly Customers&#58;
-            <input name="maximumCustomers" type="number" step="any" required="required" />
-          </label>
+            <label>Max Hourly Customers&#58;
+              <input name="maximumCustomers" type="number" step="any" required="required" />
+            </label>
 
-          <label>Avg Cookies Consumed&#58;
-            <input name="averageCookies" type="number" step=".1" required="required" />
-          </label>
+            <label>Avg Cookies Consumed&#58;
+              <input name="averageCookies" type="number" step=".1" required="required" />
+            </label>
 
-          <input type="submit" value="Do Magic" />
-        </fieldset>
-      </form>
+            <input type="submit" value="Do Magic" />
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="ul-div">
+        <p>Color Schemes&#58;</p>
+        <ul id="color-schemes">
+          <li>Tiger</li>
+          <li>Ocean</li>
+          <li>Charcoal</li>
+          <li>Eggplant</li>
+        </ul>
+      </div>
 
       <h2>Cookies Per Hour&#58;</h2>
       <div>

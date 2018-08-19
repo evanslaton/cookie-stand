@@ -6,6 +6,11 @@ var allStores = [];
 var stores = document.getElementById('stores');
 var employees = document.getElementById('employees');
 var formEl = document.getElementById('form');
+var colorSchemes = document.getElementById('color-schemes');
+var header = document.getElementsByTagName('header');
+var anchor = document.getElementsByTagName('a');
+var button = document.getElementsByTagName('input');
+var footer = document.getElementsByTagName('footer');
 
 // Store constructor function
 function Store(location, minCustomers, maxCustomers, avgCookies) {
@@ -147,23 +152,21 @@ var renderAll = function() {
 };
 
 // Captures user input and renders new Store
-var addUserInputToTable = function(e) {
+var addUserInputToTable = function(event) {
   var addNewStore = true;
-  var userInput = e.target;
+  var userInput = event.target;
   var branchInput = userInput.branch.value.toLowerCase();
-  var minimumCustomersInput = userInput.minimumCustomers.value;
-  var maximumCustomersInput = userInput.maximumCustomers.value;
-  var averageCookiesInput = userInput.averageCookies.value;
+  var minimumCustomersInput = parseInt(userInput.minimumCustomers.value);
+  var maximumCustomersInput = parseInt(userInput.maximumCustomers.value);
+  var averageCookiesInput = parseFloat(userInput.averageCookies.value);
 
-  console.log('min', minimumCustomersInput);
-  console.log('max', maximumCustomersInput);
-
+  // Checks if store already exists and if so updates information
   for (var i = 0; i < allStores.length; i++) {
     if (branchInput === allStores[i].location) {
       addNewStore = false;
-      allStores[i].minCustomers = parseInt(minimumCustomersInput);
-      allStores[i].maxCustomers = parseInt(maximumCustomersInput);
-      allStores[i].avgCookies = parseFloat(averageCookiesInput);
+      allStores[i].minCustomers = minimumCustomersInput;
+      allStores[i].maxCustomers = maximumCustomersInput;
+      allStores[i].avgCookies = averageCookiesInput;
       allStores[i].customersPerHour = [];
       allStores[i].employeesNeeded = [];
       allStores[i].cookiesPerHour = [];
@@ -173,25 +176,58 @@ var addUserInputToTable = function(e) {
     }
   }
 
+  // Adds new store information to the table
+  if (addNewStore) {
+    new Store(branchInput, minimumCustomersInput, maximumCustomersInput, averageCookiesInput, branchInput);
+  }
+
   // Empties input fields
   userInput.branch.value = null;
   userInput.minimumCustomers.value = null;
   userInput.maximumCustomers.value = null;
   userInput.averageCookies.value = null;
 
-  if (addNewStore) {
-    new Store(branchInput, minimumCustomersInput, maximumCustomersInput, averageCookiesInput, branchInput);
-  }
-
   stores.innerHTML = '';
   employees.innerHTML = '';
   renderAll();
-  e.preventDefault();
+  event.preventDefault();
+};
+
+var changeColorScheme = function(event) {
+  var colorSchemeClickedOn = event.target.textContent;
+
+  switch(colorSchemeClickedOn) {
+  case 'Tiger':
+    header[0].className = 'tiger';
+    anchor[0].className = 'tiger';
+    button[4].className = 'tiger';
+    footer[0].className = 'tiger';
+    break;
+  case 'Ocean':
+    header[0].className = 'ocean';
+    anchor[0].className = 'ocean';
+    button[4].className = 'ocean';
+    footer[0].className = 'ocean';
+    break;
+  case 'Charcoal':
+    header[0].className = 'charcoal';
+    anchor[0].className = 'charcoal';
+    button[4].className = 'charcoal';
+    footer[0].className = 'charcoal';
+    break;
+  case 'Eggplant':
+    header[0].className = '';
+    anchor[0].className = '';
+    button[4].className = '';
+    footer[0].className = '';
+  }
 };
 
 // Binds addUserInputToTable to formEl
 formEl.addEventListener('submit', addUserInputToTable);
 
+colorSchemes.addEventListener('click', changeColorScheme);
+
 renderAll();
-console.log(allStores[allStores.length - 1]);
+
 

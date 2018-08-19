@@ -9,6 +9,10 @@ p {
   font-size: 1.2em;
 }
 
+header {
+  margin-bottom: 35px;
+}
+
 header, footer {
   background-color: #511730;
   color: white;
@@ -34,7 +38,7 @@ h2 {
   text-shadow: 1px 1px 3px black;
 }
 
-header a {
+a {
   margin: 25px 25px 0 0;
   float: right;
   color: white;
@@ -47,11 +51,18 @@ header a:hover {
   text-decoration: underline;
 }
 
+div.form-div {
+  width: 50%;
+  min-width: 323px;
+  float: left;
+  overflow: hidden;
+}
+
 form {
   display: block;
   padding: 15px 10px 20px;
-  margin: 35px auto 0;
-  width: 25%;
+  margin: 10px auto;
+  width: 300px;
   min-width: 250px;
   background-color: rgb(243, 236, 236);
   border-radius: 10px;
@@ -110,10 +121,69 @@ input[type=submit]:active {
   box-shadow: 1px 1px 3px grey;
 }
 
+div.ul-div {
+  float: left;
+  width: 50%;
+  min-width: 323px;
+  overflow: hidden;
+}
+
+div > p {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+
+li {
+  text-align: center;
+  width: 300px;
+  margin: 0 auto 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  box-shadow: 1px 1px 3px black;
+}
+
+li:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 3px black;
+}
+
+li:active {
+  cursor: pointer;
+  box-shadow: 1px 1px 3px black;
+}
+
+li:first-child {
+  background-color: orange;
+  color: black;
+  text-shadow: 1px 1px 3px black;
+}
+
+li:nth-child(2) {
+  background-color: teal;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+li:nth-child(3) {
+  background-color: black;
+  color: grey;
+  text-shadow: 1px 1px 3px black;
+}
+
+li:nth-child(4) {
+  background-color: #511730;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
 main h2 {
   text-shadow: none;
   font-size: 2.2em;
-  margin-top: 25px;
+  margin-top: 10px;
+  clear: both;
 }
 
 main > div {
@@ -246,4 +316,22 @@ footer {
 
 footer p {
   margin-bottom: 5px;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* JAVASCRIPT STYLE CHANGES */
+
+header.tiger, a.tiger, input[type='submit'].tiger, footer.tiger {
+  background-color: orange;
+  color: black;
+}
+
+header.ocean, a.ocean, input[type='submit'].ocean, footer.ocean {
+  background-color: teal;
+  color: white;
+}
+
+header.charcoal, a.charcoal, input[type='submit'].charcoal, footer.charcoal {
+  background-color: black;
+  color: grey;
 }
