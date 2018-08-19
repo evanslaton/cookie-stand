@@ -6,11 +6,11 @@ var allStores = [];
 var stores = document.getElementById('stores');
 var employees = document.getElementById('employees');
 var formEl = document.getElementById('form');
-var colorSchemes = document.getElementById('color-schemes');
-var header = document.getElementsByTagName('header');
-var anchor = document.getElementsByTagName('a');
-var button = document.getElementsByTagName('input');
-var footer = document.getElementsByTagName('footer');
+var colorSchemesEl = document.getElementById('color-schemes');
+var headerEl = document.getElementById('header');
+var anchorEl = document.getElementById('anchor');
+var buttonEl = document.getElementById('input');
+var footerEl = document.getElementById('footer');
 
 // Store constructor function
 function Store(location, minCustomers, maxCustomers, avgCookies) {
@@ -198,35 +198,36 @@ var changeColorScheme = function(event) {
 
   switch(colorSchemeClickedOn) {
   case 'Tiger':
-    header[0].className = 'tiger';
-    anchor[0].className = 'tiger';
-    button[4].className = 'tiger';
-    footer[0].className = 'tiger';
+    headerEl.className = 'tiger';
+    anchorEl.className = 'tiger';
+    buttonEl.className = 'tiger';
+    footerEl.className = 'tiger';
     break;
   case 'Ocean':
-    header[0].className = 'ocean';
-    anchor[0].className = 'ocean';
-    button[4].className = 'ocean';
-    footer[0].className = 'ocean';
+    headerEl.className = 'ocean';
+    anchorEl.className = 'ocean';
+    buttonEl.className = 'ocean';
+    footerEl.className = 'ocean';
     break;
   case 'Charcoal':
-    header[0].className = 'charcoal';
-    anchor[0].className = 'charcoal';
-    button[4].className = 'charcoal';
-    footer[0].className = 'charcoal';
+    headerEl.className = 'charcoal';
+    anchorEl.className = 'charcoal';
+    buttonEl.className = 'charcoal';
+    footerEl.className = 'charcoal';
     break;
   case 'Eggplant':
-    header[0].className = '';
-    anchor[0].className = '';
-    button[4].className = '';
-    footer[0].className = '';
+    headerEl.className = '';
+    anchorEl.className = '';
+    buttonEl.className = '';
+    footerEl.className = '';
   }
 };
 
 // Binds addUserInputToTable to formEl
 formEl.addEventListener('submit', addUserInputToTable);
 
-colorSchemes.addEventListener('click', changeColorScheme);
+// Binds changeColorScheme to colorSchemesEl
+colorSchemesEl.addEventListener('click', changeColorScheme);
 
 renderAll();
 
