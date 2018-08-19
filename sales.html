@@ -15,34 +15,50 @@
       <h2>Business, Profits, Synergy</h2>
     </header>
 
-    <form id="form">
-      <fieldset>
-        <legend>New Store Info&#58;</legend>
-        
-        <div>
-          <label>Location Name&#58;
-              <input name="branch" type="text" required="required" />
-            </label>
-    
-            <label>Min Hourly Customers&#58;
-              <input name="minimumCustomers" type="number" step="any" required="required" />
-            </label>
-        </div>
+    <main>
+      <form id="form">
+        <fieldset>
+          <legend>New Store Info&#58;</legend>
+          
+          <div>
+            <label>Location Name&#58;
+                <input name="branch" type="text" required="required" />
+              </label>
+      
+              <label>Min Hourly Customers&#58;
+                <input name="minimumCustomers" type="number" step="any" required="required" />
+              </label>
+          </div>
 
-        <label>Max Hourly Customers&#58;
-          <input name="maximumCustomers" type="number" step="any" required="required" />
-        </label>
+          <label>Max Hourly Customers&#58;
+            <input name="maximumCustomers" type="number" step="any" required="required" />
+          </label>
 
-        <label>Avg Cookies Consumed&#58;
-          <input name="averageCookies" type="number" step=".1" required="required" />
-        </label>
+          <label>Avg Cookies Consumed&#58;
+            <input name="averageCookies" type="number" step=".1" required="required" />
+          </label>
 
-        <input type="submit" value="Do Magic" />
-      </fieldset>
-    </form>
+          <input type="submit" value="Do Magic" />
+        </fieldset>
+      </form>
 
-    <table id="stores"></table>
+      <h2>Cookies Per Hour&#58;</h2>
+      <div>
+        <table id="stores"></table>
+      </div>
+     
 
+      <h2>Employees Per Hour&#58;</h2>
+      <div>
+        <table id="employees"></table>
+      </div>
+    </main>
+
+    <footer>
+      <p>Locations: 1st and Pike, Seattle Center, Seatac, Capitol Hill, Alki</p>
+      <p>Hours of operation: 6am - 8pm everyday</p>
+      <p>Phone: 206-SALMONC</p>
+    </footer>
     <script src="js/app.js"></script>
   </body>
 </html>

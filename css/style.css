@@ -50,7 +50,7 @@ header a:hover {
 form {
   display: block;
   padding: 15px 10px 20px;
-  margin: 15px auto 0;
+  margin: 35px auto 0;
   width: 25%;
   min-width: 250px;
   background-color: rgb(243, 236, 236);
@@ -110,17 +110,33 @@ input[type=submit]:active {
   box-shadow: 1px 1px 3px grey;
 }
 
+main h2 {
+  text-shadow: none;
+  font-size: 2.2em;
+  margin-top: 25px;
+}
+
+main > div {
+  overflow-x: scroll;
+  width: 95%;
+  padding: 0;
+  margin: 10px auto 20px;
+}
+
 table {
   border-collapse: collapse;
   background-color: white;
-  margin: 20px auto;
-  width: 95%;
+  width: 100%;
   box-shadow: 0 0 1px black;
 }
 
 table, th, td {
   border: 1px solid black;
   text-align: center;
+}
+
+td {
+  text-transform: capitalize;
 }
 
 tr:nth-child(odd) {
