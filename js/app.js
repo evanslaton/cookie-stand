@@ -9,7 +9,7 @@ var formEl = document.getElementById('form');
 var colorSchemesEl = document.getElementById('color-schemes');
 var headerEl = document.getElementById('header');
 var anchorEl = document.getElementById('anchor');
-var buttonEl = document.getElementById('input');
+var buttonEl = document.getElementById('submit-button');
 var footerEl = document.getElementById('footer');
 
 // Store constructor function
@@ -153,6 +153,7 @@ var renderAll = function() {
 
 // Captures user input and renders new Store
 var addUserInputToTable = function(event) {
+  event.preventDefault();
   var addNewStore = true;
   var userInput = event.target;
   var branchInput = userInput.branch.value.toLowerCase();
@@ -171,8 +172,6 @@ var addUserInputToTable = function(event) {
       allStores[i].employeesNeeded = [];
       allStores[i].cookiesPerHour = [];
       allStores[i].dailyCookieTotal = 0;
-
-      // console.log(allStores[i]);
     }
   }
 
@@ -187,39 +186,36 @@ var addUserInputToTable = function(event) {
   userInput.maximumCustomers.value = null;
   userInput.averageCookies.value = null;
 
+  // Empties and re-renders tables
   stores.innerHTML = '';
   employees.innerHTML = '';
   renderAll();
-  event.preventDefault();
 };
 
+// Adds classes to certain elements to enable different CSS
+var changeClassNames = function(colorSchemeClickedOn) {
+  headerEl.className = colorSchemeClickedOn;
+  anchorEl.className = colorSchemeClickedOn;
+  buttonEl.className = colorSchemeClickedOn;
+  footerEl.className = colorSchemeClickedOn;
+};
+
+// Changes the color scheme of the page
 var changeColorScheme = function(event) {
-  var colorSchemeClickedOn = event.target.textContent;
+  var colorSchemeClickedOn = event.target.textContent.toLowerCase();
 
   switch(colorSchemeClickedOn) {
-  case 'Tiger':
-    headerEl.className = 'tiger';
-    anchorEl.className = 'tiger';
-    buttonEl.className = 'tiger';
-    footerEl.className = 'tiger';
+  case 'tiger':
+    changeClassNames(colorSchemeClickedOn);
     break;
-  case 'Ocean':
-    headerEl.className = 'ocean';
-    anchorEl.className = 'ocean';
-    buttonEl.className = 'ocean';
-    footerEl.className = 'ocean';
+  case 'ocean':
+    changeClassNames(colorSchemeClickedOn);
     break;
-  case 'Charcoal':
-    headerEl.className = 'charcoal';
-    anchorEl.className = 'charcoal';
-    buttonEl.className = 'charcoal';
-    footerEl.className = 'charcoal';
+  case 'charcoal':
+    changeClassNames(colorSchemeClickedOn);
     break;
-  case 'Eggplant':
-    headerEl.className = '';
-    anchorEl.className = '';
-    buttonEl.className = '';
-    footerEl.className = '';
+  case 'eggplant':
+    changeClassNames(colorSchemeClickedOn);
   }
 };
 
